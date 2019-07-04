@@ -16,4 +16,4 @@ docker run -e ORIGIN_ADDRESS=www.google.com\
            -d --name vhttpproxy icnteam/vhttpproxy
 ```
 
-For a quick overview of the hicn-http-proxy capabiities check [here](https://github.com/FDio/hicn/tree/master/apps#hicn-http-proxy "Hicn Http Proxy")!
+For a quick overview of the hicn-http-proxy capabilities check [here](https://github.com/FDio/hicn/tree/master/apps#hicn-http-proxy "Hicn Http Proxy")!
