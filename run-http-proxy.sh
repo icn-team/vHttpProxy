@@ -35,7 +35,7 @@ iptables -t nat -A POSTROUTING -j MASQUERADE --src ${TAP_ADDRESS_NET} ! --dst ${
 # Add default route to vpp
 vppctl ip route add 0.0.0.0/0 via ${TAP_ADDRESS_KER} ${TAP_NAME}
 # Set UDP punting
-vppctl hicn punting add prefix ${FIRST_IPV6_WORD}/16 intfc ${TAP_NAME} type udp4 src_port ${HICN_LISTENER_PORT} dst_port ${HICN_LISTENER_PORT}
+vppctl hicn punting add prefix ${FIRST_IPV6_WORD}::/16 intfc ${TAP_NAME} type udp4 src_port ${HICN_LISTENER_PORT} dst_port ${HICN_LISTENER_PORT}
 
 # Run the http proxy
 
