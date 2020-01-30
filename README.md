@@ -7,7 +7,8 @@ This docker runs the hicn-http-proxy and the whole hicn stack, built on top of t
 For running the proxy:
 
 ```bash
-docker run -e ORIGIN_ADDRESS=www.google.com\
+docker run -e HICN_LISTENER_PORT=33567 \
+           -e ORIGIN_ADDRESS=www.google.com \
            -e ORIGIN_PORT=80 \
            -e CACHE_SIZE=10000 \
            -e HICN_MTU=1200 \
