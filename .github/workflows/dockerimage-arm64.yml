@@ -22,4 +22,4 @@ jobs:
             --platform linux/arm64 \
             --output type=docker \
             --file Dockerfile.server -t icnteam/vhttpproxy:arm64 .
-          docker push icnteam/vhttpproxy:arm64 
+          docker push icnteam/vhttpproxy:arm64
