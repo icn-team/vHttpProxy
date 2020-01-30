@@ -21,6 +21,7 @@ jobs:
           docker buildx build \
             --platform linux/amd64 \
             --output type=docker \
+            --no-cache \
             --file Dockerfile -t icnteam/vhttpproxy:amd64 .
           docker push icnteam/vhttpproxy:amd64
 
