@@ -1,8 +1,8 @@
 FROM icnteam/vserver:amd64
 
 RUN apt-get update                                  && \
-    apt-get -y install iptables                     && \
-    rm -rf /var/lib/apt/lists/*                 && \
+    apt-get -y install iptables iproute2            && \
+    rm -rf /var/lib/apt/lists/*                     && \
     apt-get clean
 
 WORKDIR /hicn
