@@ -17,4 +17,5 @@ docker run -e HICN_LISTENER_PORT=33567 \
            -d --name vhttpproxy icnteam/vhttpproxy
 ```
 
-For a quick overview of the hicn-http-proxy capabilities check [here](https://github.com/FDio/hicn/tree/master/apps#hicn-http-proxy "Hicn Http Proxy")!
+For a quick overview of the hicn-http-proxy capabilities check
+[here](https://github.com/FDio/hicn/tree/master/apps#hicn-http-proxy "Hicn Http Proxy")!
