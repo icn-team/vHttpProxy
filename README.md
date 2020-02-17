@@ -14,6 +14,8 @@ docker run -e HICN_LISTENER_PORT=33567 \
            -e HICN_MTU=1200 \
            -e FIRST_IPV6_WORD=c001 \
            -e HICN_PREFIX=http://httpserver \
+           -e DEFAULT_CONTENT_LIFETIME=7200 \
+           -e USE_MANIFEST=true \
            -d --name vhttpproxy icnteam/vhttpproxy
 ```
 
