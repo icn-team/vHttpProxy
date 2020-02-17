@@ -47,7 +47,7 @@ PARAMS+="-m ${HICN_MTU} "
 PARAMS+="-P ${FIRST_IPV6_WORD} "
 PARAMS+="-l ${DEFAULT_CONTENT_LIFETIME} "
 if [ "${USE_MANIFEST}" = "true" ]; then
-  PARAMS += "-M "
+  PARAMS+="-M "
 fi
 
 hicn-http-proxy ${PARAMS} ${HICN_PREFIX}
