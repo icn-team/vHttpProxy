@@ -11,8 +11,10 @@ sleep 2
 ORIGIN_ADDRESS=${ORIGIN_ADDRESS:-"localhost"}
 ORIGIN_PORT=${ORIGIN_PORT:-"80"}
 CACHE_SIZE=${CACHE_SIZE:-"10000"}
+DEFAULT_CONTENT_LIFETIME=${DEFAULT_CONTENT_LIFETIME:-"7200"}
 HICN_MTU=${HICN_MTU:-"1300"}
 FIRST_IPV6_WORD=${FIRST_IPV6_WORD:-"b001"}
+USE_MANIFEST=${USE_MANIFEST:-"true"}
 HICN_PREFIX=${HICN_PREFIX:-"http://webserver"}
 
 # UDP Punting
@@ -38,10 +40,14 @@ vppctl ip route add 0.0.0.0/0 via ${TAP_ADDRESS_KER} ${TAP_NAME}
 vppctl hicn punting add prefix ${FIRST_IPV6_WORD}::/16 intfc ${TAP_NAME} type udp4 dst_port ${HICN_LISTENER_PORT}
 
 # Run the http proxy
+PARAMS="-a ${ORIGIN_ADDRESS} "
+PARAMS+="-p ${ORIGIN_PORT} "
+PARAMS+="-c ${CACHE_SIZE} "
+PARAMS+="-m ${HICN_MTU} "
+PARAMS+="-P ${FIRST_IPV6_WORD} "
+PARAMS+="-l ${DEFAULT_CONTENT_LIFETIME} "
+if [ "USE_MANIFEST" = "true" ]; then
+  PARAMS += "-M "
+fi
 
-hicn-http-proxy -a ${ORIGIN_ADDRESS}    \
-                -p ${ORIGIN_PORT}       \
-                -c ${CACHE_SIZE}        \
-                -m ${HICN_MTU}          \
-                -P ${FIRST_IPV6_WORD}   \
-                 ${HICN_PREFIX}
+hicn-http-proxy ${PARAMS} ${HICN_PREFIX}
