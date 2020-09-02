@@ -52,7 +52,8 @@ done
 IFS=${OFS}
 
 # Run the http proxy
-PARAMS="-a ${ORIGIN_ADDRESS} "
+PARAMS="-S "
+PARAMS+="-a ${ORIGIN_ADDRESS} "
 PARAMS+="-p ${ORIGIN_PORT} "
 PARAMS+="-c ${CACHE_SIZE} "
 PARAMS+="-m ${HICN_MTU} "
